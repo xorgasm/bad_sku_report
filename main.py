@@ -7,7 +7,7 @@ import time
 #%% GET DATA
 
 # to run locally, set test = True
-test = False
+test = True
 rpro, sls = get_data(test = test)
 
 #%% PLAY WITH DATA
