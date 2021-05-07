@@ -6,7 +6,9 @@ import time
 
 #%% GET DATA
 
-rpro, sls = get_data()
+# to run locally, set test = True
+test = True
+rpro, sls = get_data(test = test)
 
 #%% PLAY WITH DATA
 
@@ -31,7 +33,8 @@ df = df.rename(columns=names)[names.values()].reset_index(drop=True)
 
 emma = df[(df.sls_qty>0)&(df.sls_qty>df.hillcrest_qty)]
 
-emma.to_csv('for_emma.csv')
+if not test:
+    emma.to_csv('for_emma.csv')
 print('wrote bad sku report to C:/Users/Shared/CODE/emma/emma.csv')
 time.sleep(1)
 

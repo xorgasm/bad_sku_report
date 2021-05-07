@@ -6,7 +6,9 @@ pd.options.display.max_columns = 10
 import requests
 from secretInfo import headers, rpbc
 
-def get_data():
+def get_data(test=False):
+    if test:
+        return pd.read_pickle('test_sls.pkl'),pd.read_pickle('test_rp.pkl')
     url = "https://developer.sidelineswap.com/api/v1/listings/quantity-price"
     print('making api call to sidelineswap...')
     res = requests.get(url, headers=headers)
@@ -61,26 +63,3 @@ def get_data():
     rpro = rpro[cols]
     rpro['qty1'] = rpro.qty1.fillna('0').astype(int)
     return rpro, sls
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
