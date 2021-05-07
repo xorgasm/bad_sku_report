@@ -7,7 +7,7 @@ import time
 #%% GET DATA
 
 # to run locally, set test = True
-test = True
+test = False
 rpro, sls = get_data(test = test)
 
 #%% PLAY WITH DATA
@@ -35,6 +35,9 @@ emma = df[(df.sls_qty>0)&(df.sls_qty>df.hillcrest_qty)]
 
 if not test:
     emma.to_csv('for_emma.csv')
-print('wrote bad sku report to C:/Users/Shared/CODE/emma/emma.csv')
+    print('wrote bad sku report to C:/Users/Shared/CODE/emma/emma.csv')
+
+else: print(emma)
+
 time.sleep(1)
 

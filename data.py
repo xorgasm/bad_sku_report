@@ -4,11 +4,14 @@ import pandas as pd
 pd.options.display.width = 100
 pd.options.display.max_columns = 10
 import requests
-from secretInfo import headers, rpbc
+
 
 def get_data(test=False):
     if test:
         return pd.read_pickle('test_sls.pkl'),pd.read_pickle('test_rp.pkl')
+    
+    from secretInfo import headers, rpbc
+    
     url = "https://developer.sidelineswap.com/api/v1/listings/quantity-price"
     print('making api call to sidelineswap...')
     res = requests.get(url, headers=headers)
